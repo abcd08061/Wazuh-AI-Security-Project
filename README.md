@@ -22,14 +22,8 @@
 1. 研究摘要本作業針對加密流量分析方法進行概念性比較，說明 ET-BERT 與 LLM 在不同加密流量場景（如合法遠端、惡意行為）下的適用性與限制。本研究使用既有 ET-BERT 預訓練模型之概念進行推論評估，未進行實際模型大規模訓練。
 2. 技術架構分析流程如下：PCAP 封包截取 ➔ 特徵提取 (5-tuple, packet size, time) ➔ 模型推論 (ET-BERT / LLM) ➔ 分類與解釋
 3. ET-BERT 與 LLM 核心對比表透過下表說明傳統加密流量模型與大型語言模型在資安偵測上的差異：
-   比較項目               ET-BERT(Pre-trained Model)  LLM (Reasoning Engine)
-   輸入形式               Tokenized flow (封包序列)    Summarized features (特徵總結)
-   輸出類型               Class label (分類標籤)       Reasoning (邏輯推理)
-   TeamViewer(合法)       辨識穩定                     可解釋性強
-   Cobalt Strike(惡意)    容易產生誤判                 依賴Prompt品質
-   可解釋性               低(黑盒子模型)                高(提供行為假設)
-   主要用途               批量流量偵測                  SOC資安威脅狩獵輔助
-5. LLM 結構化特徵分析範例
+   <img width="721" height="299" alt="螢幕擷取畫面 2026-01-14 161355" src="https://github.com/user-attachments/assets/93eb5289-b47d-49f8-a12f-928913962582" />
+4. LLM 結構化特徵分析範例
    將加密流量特徵轉換為 JSON 格式，提供給 LLM 進行推理分析：
    {
     "avg_packet_size": 512,
